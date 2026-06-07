@@ -1,21 +1,92 @@
 # FH6 Mod Manager
 
-A small personal Linux desktop mod manager for **Forza Horizon 6**.
+A small Linux desktop mod manager/template for Forza Horizon 6.
 
-This started as a simple tool to reinstall my own FH6 mods after Steam verification/game updates, but it turned into a proper little PySide6 app with:
+This is the public-safe version of the project. It is intentionally asset-free.
 
-* T150 wheel button icon fixes
-* PlayStation wheel icon support
-* Xbox / PS4 / PS5 controller icon pack switching
-* Universal Radio and Spotify Radio install options
-* Current-state backups
-* Mod uninstall/restore support
-* Intro video disable/restore buttons
-* Preset install buttons for common wheel/controller icon combos
+It does not include game files, extracted game assets, third-party icon packs, .swatchbin files, DLLs, FMOD banks, ControllerIcons.zip, WheelIcons.zip, radio mod payloads, or copied files from other mods.
 
-This project is mainly for personal use and experimentation.
+Instead, this repo provides:
 
-> **Important:** This repo may contain files from other mods for personal backup/reinstall convenience. Do not redistribute other authors’ files publicly unless their permissions allow it.
+- the PySide6 manager app
+- backup and restore logic
+- intro video disable/restore tools
+- preset support
+- documentation
+- an empty mods/ folder where users can place their own local mod payloads
+
+Important:
+This repository is a tool/template only. Users must download, build, or provide their own mod files locally. Do not redistribute game files or third-party mod assets unless you have permission from the original rights holder or mod author.
+
+---
+
+## What This App Does
+
+FH6 Mod Manager installs and restores local FH6 mod payloads by copying files from this repo's mods/ folder into a selected Forza Horizon 6 install.
+
+It was originally built around a Thrustmaster T150 wheel icon fix, but the app itself is generic enough to manage any FH6 mod folder that mirrors the game directory layout.
+
+Current app features:
+
+- auto-detects the Steam FH6 install folder on Linux
+- allows manual FH6 folder selection
+- installs local mod payload folders from mods/
+- creates timestamped current-state and pre-install backups
+- supports friendly backup names
+- restores selected backup snapshots
+- uninstalls a selected mod using the newest matching backup
+- optionally removes files that did not exist before a mod install
+- disables/restores intro videos by renaming files instead of deleting them
+- supports preset buttons for common wheel/controller icon combinations when the matching local mod payloads are present
+- shows install status such as Installed, Different, Partial, and Not installed
+- includes a local launcher script and app icon
+
+---
+
+## What This Public Repo Does Not Include
+
+This public repo intentionally does not include:
+
+- Forza Horizon 6 game files
+- extracted Forza UI files
+- .swatchbin files
+- UI.zip
+- ControllerIcons.zip
+- WheelIcons.zip
+- DLL mod loaders
+- FMOD .bank files
+- Universal Radio payloads
+- Spotify Radio payloads
+- PS4/PS5 icon pack payloads
+- any third-party mod files
+
+The private/local working version can contain those files for personal use, but they should not be redistributed publicly unless their licenses or permissions allow it.
+
+---
+
+## Basic Mod Folder Format
+
+Mods go in:
+
+    mods/
+
+Each mod folder should mirror the FH6 install directory.
+
+Example UI mod:
+
+    mods/my_ui_mod/
+    ├── README.txt
+    └── media/
+        └── UI.zip
+
+Example root-level mod:
+
+    mods/my_radio_mod/
+    ├── version.dll
+    ├── fh6-radio/
+    └── media/
+
+When installed, the app copies the contents of the selected mod folder into the selected Forza Horizon 6 install folder.
 
 ---
 
@@ -23,9 +94,7 @@ This project is mainly for personal use and experimentation.
 
 Add screenshot here later:
 
-```md
-![FH6 Mod Manager Screenshot](resources/screenshots/fh6-mod-manager.png)
-```
+    ![FH6 Mod Manager Screenshot](resources/screenshots/fh6-mod-manager.png)
 
 ---
 
