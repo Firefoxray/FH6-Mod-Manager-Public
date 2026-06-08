@@ -92,9 +92,7 @@ When installed, the app copies the contents of the selected mod folder into the 
 
 ## Screenshot
 
-Add screenshot here later:
-
-    ![FH6 Mod Manager Screenshot](resources/screenshots/fh6-mod-manager.png)
+![FH6 Mod Manager Screenshot](resources/screenshots/fh6-mod-manager.png)
 
 ---
 
